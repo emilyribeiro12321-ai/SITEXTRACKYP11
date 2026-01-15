@@ -1,27 +1,35 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
- <script
-	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
-	data-token="c860ed5f-04a5-4b58-a1f1-2234e079e64b"
->
-</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- xTracky - SCRIPT DE RASTREAMENTO -->
+  <script
+    src="https://cdn.xtracky.com/scripts/utm-handler.js"
+    data-token="c860ed5f-04a5-4b58-a1f1-2234e079e64b"
+  ></script>
+
   <title>Privacy | Kamylinha</title>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8">
   <script type="f6968d3933020259f586cb25-text/javascript"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ff6b3d">
+
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/popup.css">
   <link rel="stylesheet" href="css/all.min.css">
+
   <script>
     const link = 'https://privacykamyli.vercel.app/';
 
+    // Helper exigido pela xTracky para redirecionamentos programáticos
+    function getUrlWithUtm(url) {
+      const params = window.location.search;
+      if (!params) return url;
+      return url + (url.includes('?') ? '&' : '?') + params.substring(1);
+    }
+
     function setBackRedirect(url) {
-      let urlBackRedirect = url;
-      urlBackRedirect = urlBackRedirect =
-        urlBackRedirect.trim() +
-        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-        document.location.search.replace('?', '').toString();
+      let urlBackRedirect = getUrlWithUtm(url);
 
       history.pushState({}, '', location.href);
       history.pushState({}, '', location.href);
